@@ -1,0 +1,288 @@
+openapi: 3.0.0
+info:
+  title: Transaction Service
+  description: |
+    #### Notes
+
+    * Allows for the loading of funds to a user's account.
+    * Handles the authorization of a transaction based on a user's balance.
+    * Requires realtime synchronous calculation of balance on request.
+
+  version: 1.0.0
+
+paths:
+
+  /ping:
+    get:
+      summary: >-
+        Tests the availability of the service and returns the current server
+        time.
+      responses:
+        200:
+          $ref: '#/components/responses/Ping'
+        default:
+          $ref: '#/components/responses/ServerError'
+
+  /authorization/{messageId}:
+    put:
+      summary: Removes funds from a user's account if sufficient funds are available.
+      parameters:
+        - $ref: '#/components/parameters/messageId'
+      requestBody:
+        $ref: '#/components/requestBodies/AuthorizationRequest'
+      responses:
+        201:
+          $ref: '#/components/responses/AuthorizationResponse'
+        default:
+          $ref: '#/components/responses/ServerError'
+
+  /load/{messageId}:
+    put:
+      summary: Adds funds to a user's account.
+      parameters:
+        - $ref: '#/components/parameters/messageId'
+      requestBody:
+        $ref: '#/components/requestBodies/LoadRequest'
+      responses:
+        201:
+          $ref: '#/components/responses/LoadResponse'
+        default:
+          $ref: '#/components/responses/ServerError'
+          
+components:
+
+  schemas:
+
+    Ping:
+      type: object
+      additionalProperties: false
+      required:
+        - serverTime
+      properties:
+        serverTime:
+          type: string
+          format: date-time
+          description: Current server time
+
+    Error:
+      type: object
+      additionalProperties: false
+      required:
+        - message
+      description: Error message
+      properties:
+        message:
+          type: string
+          minLength: 1
+        code:
+          type: string
+          minLength: 1
+
+    Amount:
+      type: object
+      additionalProperties: false
+      required:
+        - amount
+        - currency
+        - debitOrCredit
+      properties:
+        amount:
+          type: string
+          description: The amount in the denomonation of the currency. For example, $1 = '1.00'
+          minLength: 1
+        currency:
+          type: string
+          minLength: 1
+        debitOrCredit:
+          $ref: '#/components/schemas/DebitCredit'
+
+    DebitCredit:
+      type: string
+      description: >-
+        Debit or Credit flag for the network transaction. A Debit deducts funds from a user. A credit adds funds to a user.
+      enum:
+        - DEBIT
+        - CREDIT
+
+    ResponseCode:
+      type: string
+      description: >-
+        The response code sent back to the network for the merchant. Multiple declines
+        reasons may exist but only one will be sent back to the network. Advice messages
+        will include the response code that was sent on our behalf.
+      enum:
+        - APPROVED
+        - DECLINED
+
+    AuthorizationRequest:
+      type: object
+      additionalProperties: false
+      required:
+        - userId
+        - messageId
+        - transactionAmount
+      description: Authorization request that needs to be processed.
+      properties:
+        userId:
+          type: string
+          minLength: 1
+        messageId:
+          type: string
+          minLength: 1
+        transactionAmount:
+          $ref: '#/components/schemas/Amount'
+    
+    LoadRequest:
+      type: object
+      additionalProperties: false
+      required:
+        - userId
+        - messageId
+        - transactionAmount
+      description: Load request that needs to be processed.
+      properties:
+        userId:
+          type: string
+          minLength: 1
+        messageId:
+          type: string
+          minLength: 1
+        transactionAmount:
+          $ref: '#/components/schemas/Amount'
+
+    AuthorizationResponse:
+      type: object
+      additionalProperties: false
+      description: The result of an authorization
+      required:
+        - userId
+        - messageId
+        - responseCode
+        - balance
+      properties:
+        userId:
+          type: string
+          minLength: 1
+        messageId:
+          type: string
+          minLength: 1
+        responseCode:
+
+          $ref: '#/components/schemas/ResponseCode'
+        balance:
+          $ref: '#/components/schemas/Amount'
+            
+    LoadResponse:
+      type: object
+      additionalProperties: false
+      description: The result of an load.
+      required:
+        - userId
+        - messageId
+        - balance
+      properties:
+        userId:
+          type: string
+          minLength: 1
+        messageId:
+          type: string
+          minLength: 1
+        balance:
+          $ref: '#/components/schemas/Amount'
+
+  parameters:
+
+    messageId:
+      in: path
+      name: messageId
+      description: Unique identifier for a message
+      required: true
+      schema:
+        type: string
+
+  requestBodies:
+
+    AuthorizationRequest:
+      description: An authorization request message that needs to be decisioned.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AuthorizationRequest'
+          example:
+            {
+              messageId: '50e70c62-e480-49fc-bc1b-e991ac672173',
+              userId: '8786e2f9-d472-46a8-958f-d659880e723d',
+              transactionAmount: {
+                amount: '9000',
+                currency: 'USD',
+                debitOrCredit: 'DEBIT'
+              },
+            }
+
+    LoadRequest:
+      description: An load request message that needs to be decisioned. This balance will be added to a user's balance.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/LoadRequest'
+          example:
+            {
+              messageId: '55210c62-e480-asdf-bc1b-e991ac67FSAC',
+              userId: '2226e2f9-ih09-46a8-958f-d659880asdfD',
+              transactionAmount: {
+                amount: '100.23',
+                currency: 'USD',
+                debitOrCredit: 'CREDIT'
+              },
+            }
+
+  responses:
+
+    Ping:
+      description: ping successful response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Ping'
+
+    AuthorizationResponse:
+      description: The result of an authorization
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AuthorizationResponse'
+          example:
+            {
+              messageId: '50e70c62-e480-49fc-bc1b-e991ac672173',
+              userId: '8786e2f9-d472-46a8-958f-d659880e723d',
+              responseCode: 'APPROVED',
+              balance: {
+                amount: '0',
+                currency: 'USD',
+                debitOrCredit: 'CREDIT'
+              },
+            }
+            
+    LoadResponse:
+      description: The result of an load
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/LoadResponse'
+          example:
+            {
+              messageId: '55210c62-e480-asdf-bc1b-e991ac67FSAC',
+              userId: '2226e2f9-ih09-46a8-958f-d659880asdfD',
+              balance: {
+                amount: '100.23',
+                currency: 'USD',
+                debitOrCredit: 'CREDIT'
+              },
+            }
+
+    ServerError:
+      description: Server Error response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
