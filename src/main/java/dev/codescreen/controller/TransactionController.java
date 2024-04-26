@@ -19,15 +19,19 @@ public class TransactionController {
         this.transactionService = transactionService;
     }
 
-    @PostMapping("/load")
-    public ResponseEntity<TransactionResponse> loadMoney(@RequestBody LoadRequest request) {
-        TransactionResponse response = transactionService.processLoad(request);
+    @PutMapping("/load/{messageId}")
+    public ResponseEntity<TransactionResponse> loadMoney(
+            @PathVariable String messageId, @RequestBody LoadRequest request) {
+        // Pass both messageId and request to the service method
+        TransactionResponse response = transactionService.processLoad(messageId, request);
         return ResponseEntity.ok(response);
     }
 
-    @PostMapping("/authorize")
-    public ResponseEntity<TransactionResponse> authorizeTransaction(@RequestBody AuthorizationRequest request) {
-        TransactionResponse response = transactionService.processAuthorization(request);
+    @PutMapping("/authorize/{messageId}")
+    public ResponseEntity<TransactionResponse> authorizeTransaction(
+            @PathVariable String messageId, @RequestBody AuthorizationRequest request) {
+        // Pass both messageId and request to the service method
+        TransactionResponse response = transactionService.processAuthorization(messageId, request);
         return ResponseEntity.ok(response);
     }
 }

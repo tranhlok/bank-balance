@@ -1,26 +1,30 @@
 package dev.codescreen.model;
 
-public class TransactionAmount {
-    private double amount;
-    private String currency;
-    private String debitOrCredit; // "CREDIT" or "DEBIT"
 
+
+public class TransactionAmount {
+    private String amount; // Changed from double to String to match the schema
+    private String currency;
+    private DebitCredit debitOrCredit; // Use the enum
+    public enum DebitCredit {
+        DEBIT, CREDIT
+    }
     // Constructors
     public TransactionAmount() {
     }
 
-    public TransactionAmount(double amount, String currency, String debitOrCredit) {
+    public TransactionAmount(String amount, String currency, DebitCredit debitOrCredit) {
         this.amount = amount;
         this.currency = currency;
         this.debitOrCredit = debitOrCredit;
     }
 
     // Getters and Setters
-    public double getAmount() {
+    public String getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(String amount) {
         this.amount = amount;
     }
 
@@ -32,11 +36,11 @@ public class TransactionAmount {
         this.currency = currency;
     }
 
-    public String getDebitOrCredit() {
+    public DebitCredit getDebitOrCredit() {
         return debitOrCredit;
     }
 
-    public void setDebitOrCredit(String debitOrCredit) {
+    public void setDebitOrCredit(DebitCredit debitOrCredit) {
         this.debitOrCredit = debitOrCredit;
     }
 }
