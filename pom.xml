@@ -13,13 +13,13 @@
     <artifactId>CodeScreen_khqojgsd</artifactId>
     <version>1.0.0</version>
 
-<!--    <distributionManagement>-->
-<!--        <repository>-->
-<!--            <id>internal repo</id>-->
-<!--            <name>Internal Repo</name>-->
-<!--            <url>file:/Users/lok/code/CodeScreen_khqojgsd/service.yml/</url>-->
-<!--        </repository>-->
-<!--    </distributionManagement>-->
+    <distributionManagement>
+        <repository>
+            <id>internal repo</id>
+            <name>Internal Repo</name>
+            <url>file:/Users/dangduong/Desktop/lokbanker/service.yml/</url>
+        </repository>
+    </distributionManagement>
 
     <properties>
         <junit.version>4.12</junit.version>
@@ -53,10 +53,14 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-security</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
