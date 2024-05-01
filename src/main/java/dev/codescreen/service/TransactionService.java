@@ -1,43 +1,47 @@
 package dev.codescreen.service;
 
-import dev.codescreen.model.LoadRequest;
-import dev.codescreen.model.AuthorizationRequest;
-import dev.codescreen.model.TransactionResponse;
+import dev.codescreen.model.*;
+import dev.codescreen.repository.AccountRepository;
+import dev.codescreen.repository.TransactionRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Service
 public class TransactionService {
+    private final AccountRepository accountRepository;
+    private final TransactionRepository transactionRepository;
 
-
-    public TransactionResponse processLoad(String messageId, LoadRequest request) {
-        // Simulate processing a load transaction
-        // Here, you would update the account balance and create transaction records
-        // The 'messageId' can be used to log or track the transaction
-        logTransaction(messageId, request);  // Example logging function call
-
-        // Business logic to update the user's balance goes here
-
-        // For now, returning a dummy response
-        return new TransactionResponse(request.getUserId(), "Processed", request.getTransactionAmount());
+    @Autowired
+    public TransactionService(AccountRepository accountRepository, TransactionRepository transactionRepository) {
+        this.accountRepository = accountRepository;
+        this.transactionRepository = transactionRepository;
     }
 
-    public TransactionResponse processAuthorization(String messageId, AuthorizationRequest request) {
-        // Simulate processing an authorization transaction
-        // Check if the user has enough balance, then update accordingly
-        // The 'messageId' can be used to log or track the transaction
-        logTransaction(messageId, request);  // Example logging function call
-
-        // Business logic to check the user's balance and authorize the transaction goes here
-
-        // For now, assuming the authorization is always approved
-        return new TransactionResponse(request.getUserId(), "Approved", request.getTransactionAmount());
+    // Example of deposit (could be similar for withdrawal but negative amount)
+    public Transaction performDeposit(String accountNumber, double amount) {
+        Account account = accountRepository.findByAccountNumber(accountNumber);
+        if (account == null){
+            return null;
+        }
+        boolean success = account != null;
+        if (success) {
+            account.setBalance(account.getBalance() + amount);
+            accountRepository.save(account);
+        }
+        return recordTransaction("EXTERNAL_SOURCE", accountNumber, amount, LocalDateTime.now(), success);
     }
 
-    // Example logging method (you would implement the actual logging according to your needs)
-    private void logTransaction(String messageId, Object request) {
-        // Log the transaction with the messageId and request details
-        System.out.println("Processing transaction with ID: " + messageId + " and request: " + request.toString());
+    // General method to record transactions
+    private Transaction recordTransaction(String originAccount, String targetAccount, double amount, LocalDateTime transactionDate, boolean successful) {
+        Transaction transaction = new Transaction();
+        transaction.setOriginAccount(originAccount);
+        transaction.setTargetAccount(targetAccount);
+        transaction.setAmount(amount);
+        transaction.setTransactionDate(transactionDate);
+        transaction.setSuccessful(successful);
+        return transactionRepository.save(transaction);
     }
 }

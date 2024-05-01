@@ -1,5 +1,6 @@
 package dev.codescreen.model;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import jakarta.persistence.Entity;
@@ -16,20 +17,13 @@ public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    private String originAccount; // Can be an account number or a placeholder for external sources
+    private String targetAccount; // Can be an account number or a placeholder for external targets
+
     private double amount;
-
-    @Enumerated(EnumType.STRING)
-    private TransactionType transactionType;
-
-    private Date transaction_date;
-
-    @ManyToOne
-    @JoinColumn(name = "source_account_id")
-    private Account sourceAccount;
-
-    @ManyToOne
-    @JoinColumn(name = "target_account_id")
-    private Account targetAccount;
+    private LocalDateTime transactionDate;
+    private boolean successful;
 
     public Long getId() {
         return id;
@@ -37,6 +31,22 @@ public class Transaction {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getOriginAccount() {
+        return originAccount;
+    }
+
+    public void setOriginAccount(String originAccount) {
+        this.originAccount = originAccount;
+    }
+
+    public String getTargetAccount() {
+        return targetAccount;
+    }
+
+    public void setTargetAccount(String targetAccount) {
+        this.targetAccount = targetAccount;
     }
 
     public double getAmount() {
@@ -47,44 +57,20 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public TransactionType getTransactionType() {
-        return transactionType;
+    public LocalDateTime getTransactionDate() {
+        return transactionDate;
     }
 
-    public void setTransactionType(TransactionType transactionType) {
-        this.transactionType = transactionType;
+    public void setTransactionDate(LocalDateTime transactionDate) {
+        this.transactionDate = transactionDate;
     }
 
-    public Date getTransaction_date() {
-        return transaction_date;
+    public boolean isSuccessful() {
+        return successful;
     }
 
-    public void setTransaction_date(Date transaction_date) {
-        this.transaction_date = transaction_date;
+    public void setSuccessful(boolean successful) {
+        this.successful = successful;
     }
-
-    public Account getSourceAccount() {
-        return sourceAccount;
-    }
-
-    public void setSourceAccount(Account sourceAccount) {
-        this.sourceAccount = sourceAccount;
-    }
-
-    public Account getTargetAccount() {
-        return targetAccount;
-    }
-
-    public void setTargetAccount(Account targetAccount) {
-        this.targetAccount = targetAccount;
-    }
-
-    @Override
-    public String toString() {
-        return "Transaction [id=" + id + ", amount=" + amount + ", transactionType=" + transactionType
-                + ", transaction_date=" + transaction_date + ", sourceAccount=" + sourceAccount + ", targetAccount="
-                + targetAccount + "]";
-    }
-
-
+// Assume other necessary fields and methods
 }

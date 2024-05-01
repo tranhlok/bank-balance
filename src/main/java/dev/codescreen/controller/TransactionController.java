@@ -1,8 +1,5 @@
 package dev.codescreen.controller;
 
-import dev.codescreen.model.LoadRequest;
-import dev.codescreen.model.AuthorizationRequest;
-import dev.codescreen.model.TransactionResponse;
 import dev.codescreen.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -20,18 +17,14 @@ public class TransactionController {
     }
 
     @PutMapping("/load/{messageId}")
-    public ResponseEntity<TransactionResponse> loadMoney(
+    public ResponseEntity<?> loadMoney(
             @PathVariable String messageId, @RequestBody LoadRequest request) {
-        // Pass both messageId and request to the service method
-        TransactionResponse response = transactionService.processLoad(messageId, request);
-        return ResponseEntity.ok(response);
+        return null;
     }
 
     @PutMapping("/authorize/{messageId}")
-    public ResponseEntity<TransactionResponse> authorizeTransaction(
+    public ResponseEntity<?> authorizeTransaction(
             @PathVariable String messageId, @RequestBody AuthorizationRequest request) {
-        // Pass both messageId and request to the service method
-        TransactionResponse response = transactionService.processAuthorization(messageId, request);
-        return ResponseEntity.ok(response);
+        return null;
     }
 }
