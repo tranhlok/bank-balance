@@ -21,7 +21,6 @@ public class TransactionService {
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
 
-    @Transactional
     public String processWithdrawal(HttpServletRequest request, Transaction transaction) {
         String token = parseToken(request);
         String accountNumber = jwtTokenUtil.getAccountFromToken(token);
@@ -44,6 +43,7 @@ public class TransactionService {
     }
 
 
+    @Transactional
     private String processTransaction(String accountNumber, double amount, boolean isDeposit) {
         Account account = accountRepository.findByAccountNumber(accountNumber);
         if (account == null) {
@@ -52,6 +52,13 @@ public class TransactionService {
 
         double newBalance = isDeposit ? account.getBalance() + amount : account.getBalance() - amount;
         if (!isDeposit && newBalance < 0) {
+            Transaction transaction = new Transaction();
+            transaction.setTargetAccount(accountNumber);
+            transaction.setAmount(amount);
+            transaction.setTransactionDate(LocalDateTime.now());
+            transaction.setSuccessful(false);  // Set transaction as unsuccessful
+            transactionRepository.save(transaction);
+
             return "Insufficient funds";
         }
 
@@ -62,6 +69,7 @@ public class TransactionService {
         transaction.setTargetAccount(accountNumber);
         transaction.setAmount(amount);
         transaction.setTransactionDate(LocalDateTime.now());
+
         transaction.setSuccessful(true);
         transactionRepository.save(transaction);
 
