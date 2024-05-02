@@ -57,7 +57,7 @@ public class TransactionService {
             transaction.setAmount(amount);
             transaction.setTransactionDate(LocalDateTime.now());
             transaction.setSuccessful(false);  // Set transaction as unsuccessful
-            transaction.setTransactionType(TransactionType.CREDIT);  // Assuming DEBIT is the correct type for failed withdrawals
+            transaction.setTransactionType("CREDIT");  // Assuming DEBIT is the correct type for failed withdrawals
 
             transactionRepository.save(transaction);
 
@@ -73,7 +73,7 @@ public class TransactionService {
         transaction.setTransactionDate(LocalDateTime.now());
 
         transaction.setSuccessful(true);
-        transaction.setTransactionType(isDeposit ? TransactionType.DEBIT: TransactionType.CREDIT);  // Set type based on transaction kind
+        transaction.setTransactionType(isDeposit ? "DEBIT": "CREDIT");  // Set type based on transaction kind
 
         transactionRepository.save(transaction);
 

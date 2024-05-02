@@ -24,7 +24,7 @@ public class Transaction {
     @JsonProperty("amount") // Ensure JSON can map the 'amount' field
     private double amount;
     private LocalDateTime transactionDate;
-    private TransactionType transactionType;
+    private String transactionType;
     private boolean successful;
 
     public Long getId() {
@@ -68,7 +68,7 @@ public class Transaction {
         this.successful = successful;
     }
 
-    public void setTransactionType(TransactionType transactionType) {
+    public void setTransactionType(String transactionType) {
         this.transactionType = transactionType;
     }
 
