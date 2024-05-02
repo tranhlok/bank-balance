@@ -88,7 +88,7 @@ components:
       properties:
         amount:
           type: string
-          description: The amount in the denomonation of the currency. For example, $1 = '1.00'
+          description: The amount in the denomination of the currency. For example, $1 = '1.00'
           minLength: 1
         currency:
           type: string
