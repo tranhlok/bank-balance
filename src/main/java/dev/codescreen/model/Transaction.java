@@ -23,6 +23,7 @@ public class Transaction {
 
     @JsonProperty("amount") // Ensure JSON can map the 'amount' field
     private double amount;
+    private String currency;
     private LocalDateTime transactionDate;
     private String transactionType;
     private boolean successful;
@@ -72,5 +73,8 @@ public class Transaction {
         this.transactionType = transactionType;
     }
 
+    public String getCurrency() {return currency;}
+
+    public void setCurrency(String currency) {this.currency = currency;}
 // Assume other necessary fields and methods
 }

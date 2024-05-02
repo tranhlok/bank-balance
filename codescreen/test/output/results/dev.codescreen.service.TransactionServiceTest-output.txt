@@ -1718,7 +1718,7 @@ Caused by: java.lang.IllegalArgumentException: Unsupported class file major vers
 	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrument(Instrumenter.java:74)
 	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrument(Instrumenter.java:106)
 	... 126 more
-java.lang.instrument.IllegalClassFormatException: Error while instrumenting dev/codescreen/repository/AccountRepository$MockitoMock$GzF2dqEl.
+java.lang.instrument.IllegalClassFormatException: Error while instrumenting dev/codescreen/repository/AccountRepository$MockitoMock$R7fuJZT0.
 	at org.jacoco.agent.rt.internal_035b120.CoverageTransformer.transform(CoverageTransformer.java:93)
 	at java.instrument/java.lang.instrument.ClassFileTransformer.transform(ClassFileTransformer.java:244)
 	at java.instrument/sun.instrument.TransformerManager.transform(TransformerManager.java:188)
@@ -1817,7 +1817,7 @@ java.lang.instrument.IllegalClassFormatException: Error while instrumenting dev/
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
-Caused by: java.io.IOException: Error while instrumenting dev/codescreen/repository/AccountRepository$MockitoMock$GzF2dqEl.
+Caused by: java.io.IOException: Error while instrumenting dev/codescreen/repository/AccountRepository$MockitoMock$R7fuJZT0.
 	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrumentError(Instrumenter.java:158)
 	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrument(Instrumenter.java:108)
 	at org.jacoco.agent.rt.internal_035b120.CoverageTransformer.transform(CoverageTransformer.java:91)
@@ -1830,7 +1830,7 @@ Caused by: java.lang.IllegalArgumentException: Unsupported class file major vers
 	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrument(Instrumenter.java:74)
 	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrument(Instrumenter.java:106)
 	... 98 more
-java.lang.instrument.IllegalClassFormatException: Error while instrumenting dev/codescreen/repository/AccountRepository$MockitoMock$GzF2dqEl$auxiliary$XuHyFHTQ.
+java.lang.instrument.IllegalClassFormatException: Error while instrumenting dev/codescreen/repository/AccountRepository$MockitoMock$R7fuJZT0$auxiliary$bJziqSiv.
 	at org.jacoco.agent.rt.internal_035b120.CoverageTransformer.transform(CoverageTransformer.java:93)
 	at java.instrument/java.lang.instrument.ClassFileTransformer.transform(ClassFileTransformer.java:244)
 	at java.instrument/sun.instrument.TransformerManager.transform(TransformerManager.java:188)
@@ -1929,7 +1929,7 @@ java.lang.instrument.IllegalClassFormatException: Error while instrumenting dev/
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
-Caused by: java.io.IOException: Error while instrumenting dev/codescreen/repository/AccountRepository$MockitoMock$GzF2dqEl$auxiliary$XuHyFHTQ.
+Caused by: java.io.IOException: Error while instrumenting dev/codescreen/repository/AccountRepository$MockitoMock$R7fuJZT0$auxiliary$bJziqSiv.
 	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrumentError(Instrumenter.java:158)
 	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrument(Instrumenter.java:108)
 	at org.jacoco.agent.rt.internal_035b120.CoverageTransformer.transform(CoverageTransformer.java:91)
@@ -1942,7 +1942,7 @@ Caused by: java.lang.IllegalArgumentException: Unsupported class file major vers
 	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrument(Instrumenter.java:74)
 	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrument(Instrumenter.java:106)
 	... 98 more
-java.lang.instrument.IllegalClassFormatException: Error while instrumenting dev/codescreen/repository/AccountRepository$MockitoMock$GzF2dqEl$auxiliary$bs6tpdz9.
+java.lang.instrument.IllegalClassFormatException: Error while instrumenting dev/codescreen/repository/AccountRepository$MockitoMock$R7fuJZT0$auxiliary$Uj36pFea.
 	at org.jacoco.agent.rt.internal_035b120.CoverageTransformer.transform(CoverageTransformer.java:93)
 	at java.instrument/java.lang.instrument.ClassFileTransformer.transform(ClassFileTransformer.java:244)
 	at java.instrument/sun.instrument.TransformerManager.transform(TransformerManager.java:188)
@@ -2041,7 +2041,7 @@ java.lang.instrument.IllegalClassFormatException: Error while instrumenting dev/
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
-Caused by: java.io.IOException: Error while instrumenting dev/codescreen/repository/AccountRepository$MockitoMock$GzF2dqEl$auxiliary$bs6tpdz9.
+Caused by: java.io.IOException: Error while instrumenting dev/codescreen/repository/AccountRepository$MockitoMock$R7fuJZT0$auxiliary$Uj36pFea.
 	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrumentError(Instrumenter.java:158)
 	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrument(Instrumenter.java:108)
 	at org.jacoco.agent.rt.internal_035b120.CoverageTransformer.transform(CoverageTransformer.java:91)
@@ -2179,7 +2179,7 @@ Caused by: java.lang.IllegalArgumentException: Unsupported class file major vers
 	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrument(Instrumenter.java:74)
 	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrument(Instrumenter.java:106)
 	... 111 more
-java.lang.instrument.IllegalClassFormatException: Error while instrumenting dev/codescreen/repository/TransactionRepository$MockitoMock$MoERaJmN.
+java.lang.instrument.IllegalClassFormatException: Error while instrumenting dev/codescreen/repository/TransactionRepository$MockitoMock$fr4l3Hgl.
 	at org.jacoco.agent.rt.internal_035b120.CoverageTransformer.transform(CoverageTransformer.java:93)
 	at java.instrument/java.lang.instrument.ClassFileTransformer.transform(ClassFileTransformer.java:244)
 	at java.instrument/sun.instrument.TransformerManager.transform(TransformerManager.java:188)
@@ -2278,7 +2278,7 @@ java.lang.instrument.IllegalClassFormatException: Error while instrumenting dev/
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
-Caused by: java.io.IOException: Error while instrumenting dev/codescreen/repository/TransactionRepository$MockitoMock$MoERaJmN.
+Caused by: java.io.IOException: Error while instrumenting dev/codescreen/repository/TransactionRepository$MockitoMock$fr4l3Hgl.
 	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrumentError(Instrumenter.java:158)
 	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrument(Instrumenter.java:108)
 	at org.jacoco.agent.rt.internal_035b120.CoverageTransformer.transform(CoverageTransformer.java:91)
@@ -2291,7 +2291,7 @@ Caused by: java.lang.IllegalArgumentException: Unsupported class file major vers
 	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrument(Instrumenter.java:74)
 	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrument(Instrumenter.java:106)
 	... 98 more
-java.lang.instrument.IllegalClassFormatException: Error while instrumenting dev/codescreen/repository/TransactionRepository$MockitoMock$MoERaJmN$auxiliary$3rOfcfTp.
+java.lang.instrument.IllegalClassFormatException: Error while instrumenting dev/codescreen/repository/TransactionRepository$MockitoMock$fr4l3Hgl$auxiliary$4DSJTACP.
 	at org.jacoco.agent.rt.internal_035b120.CoverageTransformer.transform(CoverageTransformer.java:93)
 	at java.instrument/java.lang.instrument.ClassFileTransformer.transform(ClassFileTransformer.java:244)
 	at java.instrument/sun.instrument.TransformerManager.transform(TransformerManager.java:188)
@@ -2390,7 +2390,7 @@ java.lang.instrument.IllegalClassFormatException: Error while instrumenting dev/
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
-Caused by: java.io.IOException: Error while instrumenting dev/codescreen/repository/TransactionRepository$MockitoMock$MoERaJmN$auxiliary$3rOfcfTp.
+Caused by: java.io.IOException: Error while instrumenting dev/codescreen/repository/TransactionRepository$MockitoMock$fr4l3Hgl$auxiliary$4DSJTACP.
 	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrumentError(Instrumenter.java:158)
 	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrument(Instrumenter.java:108)
 	at org.jacoco.agent.rt.internal_035b120.CoverageTransformer.transform(CoverageTransformer.java:91)
@@ -2403,7 +2403,7 @@ Caused by: java.lang.IllegalArgumentException: Unsupported class file major vers
 	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrument(Instrumenter.java:74)
 	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrument(Instrumenter.java:106)
 	... 98 more
-java.lang.instrument.IllegalClassFormatException: Error while instrumenting dev/codescreen/repository/TransactionRepository$MockitoMock$MoERaJmN$auxiliary$DYviYRQn.
+java.lang.instrument.IllegalClassFormatException: Error while instrumenting dev/codescreen/repository/TransactionRepository$MockitoMock$fr4l3Hgl$auxiliary$KEF9tsXd.
 	at org.jacoco.agent.rt.internal_035b120.CoverageTransformer.transform(CoverageTransformer.java:93)
 	at java.instrument/java.lang.instrument.ClassFileTransformer.transform(ClassFileTransformer.java:244)
 	at java.instrument/sun.instrument.TransformerManager.transform(TransformerManager.java:188)
@@ -2502,7 +2502,7 @@ java.lang.instrument.IllegalClassFormatException: Error while instrumenting dev/
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
-Caused by: java.io.IOException: Error while instrumenting dev/codescreen/repository/TransactionRepository$MockitoMock$MoERaJmN$auxiliary$DYviYRQn.
+Caused by: java.io.IOException: Error while instrumenting dev/codescreen/repository/TransactionRepository$MockitoMock$fr4l3Hgl$auxiliary$KEF9tsXd.
 	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrumentError(Instrumenter.java:158)
 	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrument(Instrumenter.java:108)
 	at org.jacoco.agent.rt.internal_035b120.CoverageTransformer.transform(CoverageTransformer.java:91)
@@ -2515,7 +2515,7 @@ Caused by: java.lang.IllegalArgumentException: Unsupported class file major vers
 	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrument(Instrumenter.java:74)
 	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrument(Instrumenter.java:106)
 	... 98 more
-java.lang.instrument.IllegalClassFormatException: Error while instrumenting jakarta/servlet/http/HttpServletRequest$MockitoMock$oUEUaqt6.
+java.lang.instrument.IllegalClassFormatException: Error while instrumenting jakarta/servlet/http/HttpServletRequest$MockitoMock$Y1M82lnu.
 	at org.jacoco.agent.rt.internal_035b120.CoverageTransformer.transform(CoverageTransformer.java:93)
 	at java.instrument/java.lang.instrument.ClassFileTransformer.transform(ClassFileTransformer.java:244)
 	at java.instrument/sun.instrument.TransformerManager.transform(TransformerManager.java:188)
@@ -2614,7 +2614,7 @@ java.lang.instrument.IllegalClassFormatException: Error while instrumenting jaka
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
-Caused by: java.io.IOException: Error while instrumenting jakarta/servlet/http/HttpServletRequest$MockitoMock$oUEUaqt6.
+Caused by: java.io.IOException: Error while instrumenting jakarta/servlet/http/HttpServletRequest$MockitoMock$Y1M82lnu.
 	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrumentError(Instrumenter.java:158)
 	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrument(Instrumenter.java:108)
 	at org.jacoco.agent.rt.internal_035b120.CoverageTransformer.transform(CoverageTransformer.java:91)
@@ -2627,7 +2627,7 @@ Caused by: java.lang.IllegalArgumentException: Unsupported class file major vers
 	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrument(Instrumenter.java:74)
 	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrument(Instrumenter.java:106)
 	... 98 more
-java.lang.instrument.IllegalClassFormatException: Error while instrumenting jakarta/servlet/http/HttpServletRequest$MockitoMock$oUEUaqt6$auxiliary$pxAqJ1C9.
+java.lang.instrument.IllegalClassFormatException: Error while instrumenting jakarta/servlet/http/HttpServletRequest$MockitoMock$Y1M82lnu$auxiliary$QEm3kRAc.
 	at org.jacoco.agent.rt.internal_035b120.CoverageTransformer.transform(CoverageTransformer.java:93)
 	at java.instrument/java.lang.instrument.ClassFileTransformer.transform(ClassFileTransformer.java:244)
 	at java.instrument/sun.instrument.TransformerManager.transform(TransformerManager.java:188)
@@ -2726,7 +2726,7 @@ java.lang.instrument.IllegalClassFormatException: Error while instrumenting jaka
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
-Caused by: java.io.IOException: Error while instrumenting jakarta/servlet/http/HttpServletRequest$MockitoMock$oUEUaqt6$auxiliary$pxAqJ1C9.
+Caused by: java.io.IOException: Error while instrumenting jakarta/servlet/http/HttpServletRequest$MockitoMock$Y1M82lnu$auxiliary$QEm3kRAc.
 	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrumentError(Instrumenter.java:158)
 	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrument(Instrumenter.java:108)
 	at org.jacoco.agent.rt.internal_035b120.CoverageTransformer.transform(CoverageTransformer.java:91)
@@ -2739,7 +2739,7 @@ Caused by: java.lang.IllegalArgumentException: Unsupported class file major vers
 	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrument(Instrumenter.java:74)
 	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrument(Instrumenter.java:106)
 	... 98 more
-java.lang.instrument.IllegalClassFormatException: Error while instrumenting jakarta/servlet/http/HttpServletRequest$MockitoMock$oUEUaqt6$auxiliary$4f0Uy6ur.
+java.lang.instrument.IllegalClassFormatException: Error while instrumenting jakarta/servlet/http/HttpServletRequest$MockitoMock$Y1M82lnu$auxiliary$k8fMxjOZ.
 	at org.jacoco.agent.rt.internal_035b120.CoverageTransformer.transform(CoverageTransformer.java:93)
 	at java.instrument/java.lang.instrument.ClassFileTransformer.transform(ClassFileTransformer.java:244)
 	at java.instrument/sun.instrument.TransformerManager.transform(TransformerManager.java:188)
@@ -2838,7 +2838,7 @@ java.lang.instrument.IllegalClassFormatException: Error while instrumenting jaka
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
-Caused by: java.io.IOException: Error while instrumenting jakarta/servlet/http/HttpServletRequest$MockitoMock$oUEUaqt6$auxiliary$4f0Uy6ur.
+Caused by: java.io.IOException: Error while instrumenting jakarta/servlet/http/HttpServletRequest$MockitoMock$Y1M82lnu$auxiliary$k8fMxjOZ.
 	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrumentError(Instrumenter.java:158)
 	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrument(Instrumenter.java:108)
 	at org.jacoco.agent.rt.internal_035b120.CoverageTransformer.transform(CoverageTransformer.java:91)

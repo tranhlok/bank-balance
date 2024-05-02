@@ -55,6 +55,7 @@ public class TransactionService {
             Transaction transaction = new Transaction();
             transaction.setTargetAccount(accountNumber);
             transaction.setAmount(amount);
+            transaction.setCurrency("USD");
             transaction.setTransactionDate(LocalDateTime.now());
             transaction.setSuccessful(false);  // Set transaction as unsuccessful
             transaction.setTransactionType("CREDIT");  // Assuming DEBIT is the correct type for failed withdrawals
@@ -70,6 +71,7 @@ public class TransactionService {
         Transaction transaction = new Transaction();
         transaction.setTargetAccount(accountNumber);
         transaction.setAmount(amount);
+        transaction.setCurrency("USD");
         transaction.setTransactionDate(LocalDateTime.now());
 
         transaction.setSuccessful(true);
