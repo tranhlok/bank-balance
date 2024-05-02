@@ -67,5 +67,10 @@ public class Transaction {
     public void setSuccessful(boolean successful) {
         this.successful = successful;
     }
+
+    public void setTransactionType(TransactionType transactionType) {
+        this.transactionType = transactionType;
+    }
+
 // Assume other necessary fields and methods
 }
