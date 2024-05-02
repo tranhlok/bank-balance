@@ -22,9 +22,10 @@ public class TransactionService {
     private JwtTokenUtil jwtTokenUtil;
 
     @Transactional
-    public String processWithdrawal(HttpServletRequest request, double amount) {
+    public String processWithdrawal(HttpServletRequest request, Transaction transaction) {
         String token = parseToken(request);
         String accountNumber = jwtTokenUtil.getAccountFromToken(token);
+        double amount = transaction.getAmount();
         return processTransaction(accountNumber, amount, false);
     }
     private String parseToken(HttpServletRequest request) {

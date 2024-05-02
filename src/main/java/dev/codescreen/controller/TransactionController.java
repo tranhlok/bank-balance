@@ -17,8 +17,11 @@ public class TransactionController {
 
     @PostMapping("/withdraw")
     @PreAuthorize("hasAuthority('ROLE_USER')")
-    public String withdraw(HttpServletRequest request, @RequestBody double amount) {
-        return transactionService.processWithdrawal(request, amount);
+    public ResponseEntity<String> withdraw(HttpServletRequest request, @RequestBody Transaction transaction) {
+        System.out.println(transaction.toString());
+
+        String result = transactionService.processWithdrawal(request, transaction);
+        return ResponseEntity.ok(result);
     }
     @PostMapping("/deposit")
     @PreAuthorize("hasAuthority('ROLE_USER')")
