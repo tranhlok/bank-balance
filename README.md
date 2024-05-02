@@ -39,18 +39,46 @@ This section covers the steps required to get the project up and running on your
 ### Prerequisites
 
 Before proceeding, ensure you have the following installed:
+- MySQL.
 - **Java JDK 17** or higher: Necessary to run Java applications. You can download it from [Oracle's website](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) or use OpenJDK.
 - **Maven 4.0** or higher: Required for managing the project's build. Download and installation instructions can be found on the [Apache Maven Project website](https://maven.apache.org/).
 
-### Clone the Repository
+### Clone the Repository / Open Terminal in the Project Folder
 To start, clone the project repository from GitHub to your local machine. 
+Alternatively, navigate to the project folder and open a terminal.
 
 ```bash
 git clone https://github.com/codescreen/CodeScreen_khqojgsd.git
 cd CodeScreen_khqojgsd
 ```
-### Build the Application
 
+### Configure the MySQL Server
+
+```bash
+sudo service mysql start
+```
+
+Run the mysql_secure_installation script from the command line. Pick your username and password for the server.
+```bash
+sudo mysql_secure_installation
+```
+
+Open the MySQL shell or MySQL Workbench and create a new database for your project:
+```bash
+CREATE DATABASE your_database_name;
+USE your_database_name;
+```
+Update your application’s configuration files (application.properties) to point to your MySQL server. 
+Replace your_database_name, your_username, and your_password with the previously configured values.
+```bash
+spring.datasource.url=jdbc:mysql://localhost:3306/your_database_name
+spring.datasource.username=your_username
+spring.datasource.password=your_password
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+```
+
+### Build the Application
+This command also run the unit tests.
 ```bash
 mvn clean install
 ```
