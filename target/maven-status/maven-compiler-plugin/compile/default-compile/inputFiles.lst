@@ -9,7 +9,6 @@
 /Users/lok/code/bank/banker/src/main/java/dev/codescreen/CurrentBankingServiceApplication.java
 /Users/lok/code/bank/banker/src/main/java/dev/codescreen/repository/AccountRepository.java
 /Users/lok/code/bank/banker/src/main/java/dev/codescreen/model/Account.java
-/Users/lok/code/bank/banker/src/main/java/dev/codescreen/model/TransactionType.java
 /Users/lok/code/bank/banker/src/main/java/dev/codescreen/model/Transaction.java
 /Users/lok/code/bank/banker/src/main/java/dev/codescreen/service/AccountService.java
 /Users/lok/code/bank/banker/src/main/java/dev/codescreen/controller/AccountController.java

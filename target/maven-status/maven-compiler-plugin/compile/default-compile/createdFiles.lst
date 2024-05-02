@@ -10,7 +10,6 @@ dev/codescreen/dto/LoginRequest.class
 dev/codescreen/security/JwtAuthenticationFilter.class
 dev/codescreen/repository/TransactionRepository.class
 dev/codescreen/controller/TransactionController.class
-dev/codescreen/model/TransactionType.class
 dev/codescreen/security/JwtAuthenticationEntryPoint.class
 dev/codescreen/controller/PingController$1.class
 dev/codescreen/config/WebSecurityConfig.class

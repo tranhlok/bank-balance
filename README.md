@@ -31,6 +31,7 @@ We are looking for attention in the following areas:
 4) Do you have unit and integrations test on the functionality?
 
 # Candidate README
+
 ## Bootstrap instructions
 
 This section covers the steps required to get the project up and running on your local machine for development and testing purposes.
@@ -42,7 +43,7 @@ Before proceeding, ensure you have the following installed:
 - **Maven 4.0** or higher: Required for managing the project's build. Download and installation instructions can be found on the [Apache Maven Project website](https://maven.apache.org/).
 
 ### Clone the Repository
-To start, clone the project repository from GitHub to your local machine. Replace `yourusername` and `yourprojectname` with the appropriate repository details:
+To start, clone the project repository from GitHub to your local machine. 
 
 ```bash
 git clone https://github.com/codescreen/CodeScreen_khqojgsd.git
