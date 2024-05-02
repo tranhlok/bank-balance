@@ -32,7 +32,33 @@ We are looking for attention in the following areas:
 
 # Candidate README
 ## Bootstrap instructions
-*Replace this: To run this server locally, do the following:*
+
+This section covers the steps required to get the project up and running on your local machine for development and testing purposes.
+
+### Prerequisites
+
+Before proceeding, ensure you have the following installed:
+- **Java JDK 17** or higher: Necessary to run Java applications. You can download it from [Oracle's website](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) or use OpenJDK.
+- **Maven 4.0** or higher: Required for managing the project's build. Download and installation instructions can be found on the [Apache Maven Project website](https://maven.apache.org/).
+
+### Clone the Repository
+To start, clone the project repository from GitHub to your local machine. Replace `yourusername` and `yourprojectname` with the appropriate repository details:
+
+```bash
+git clone https://github.com/codescreen/CodeScreen_khqojgsd.git
+cd CodeScreen_khqojgsd
+```
+### Build the Application
+
+```bash
+mvn clean install
+```
+
+### Run the server
+```bash
+mvn spring-boot:run
+```
+
 
 ## Design considerations
 *Replace this: I decided to build X for Y reasons.*
