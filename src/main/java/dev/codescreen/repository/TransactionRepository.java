@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 @Repository
 public interface TransactionRepository extends JpaRepository<Transaction, Long> {
-    List<Transaction> findByOriginAccountOrTargetAccount(String originAccount, String targetAccount);
+    List<Transaction> findByTargetAccount(String accountNumber);
 }
 
 

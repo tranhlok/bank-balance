@@ -3,45 +3,67 @@ package dev.codescreen.service;
 import dev.codescreen.model.*;
 import dev.codescreen.repository.AccountRepository;
 import dev.codescreen.repository.TransactionRepository;
+import dev.codescreen.security.JwtTokenUtil;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Service
 public class TransactionService {
-    private final AccountRepository accountRepository;
-    private final TransactionRepository transactionRepository;
-
     @Autowired
-    public TransactionService(AccountRepository accountRepository, TransactionRepository transactionRepository) {
-        this.accountRepository = accountRepository;
-        this.transactionRepository = transactionRepository;
+    private AccountRepository accountRepository;
+    @Autowired
+    private TransactionRepository transactionRepository;
+    @Autowired
+    private JwtTokenUtil jwtTokenUtil;
+
+    @Transactional
+    public String processWithdrawal(HttpServletRequest request, double amount) {
+        String token = parseToken(request);
+        String accountNumber = jwtTokenUtil.getAccountFromToken(token);
+        return processTransaction(accountNumber, amount, false);
+    }
+    private String parseToken(HttpServletRequest request) {
+        String header = request.getHeader("Authorization");
+        if (header != null && header.startsWith("Bearer ")) {
+            return header.substring(7);
+        }
+        return null; // or throw an exception if the token is mandatory
     }
 
-    // Example of deposit (could be similar for withdrawal but negative amount)
-    public Transaction performDeposit(String accountNumber, double amount) {
+    public String processDeposit(HttpServletRequest request, Transaction transaction) {
+        String token = parseToken(request);
+        String accountNumber = jwtTokenUtil.getAccountFromToken(token);
+        double amount = transaction.getAmount(); // Ensure Transaction object has an 'amount' field
+        return processTransaction(accountNumber, amount, true);
+    }
+
+
+    private String processTransaction(String accountNumber, double amount, boolean isDeposit) {
         Account account = accountRepository.findByAccountNumber(accountNumber);
-        if (account == null){
-            return null;
+        if (account == null) {
+            return "Account not found";
         }
-        boolean success = account != null;
-        if (success) {
-            account.setBalance(account.getBalance() + amount);
-            accountRepository.save(account);
-        }
-        return recordTransaction("EXTERNAL_SOURCE", accountNumber, amount, LocalDateTime.now(), success);
-    }
 
-    // General method to record transactions
-    private Transaction recordTransaction(String originAccount, String targetAccount, double amount, LocalDateTime transactionDate, boolean successful) {
+        double newBalance = isDeposit ? account.getBalance() + amount : account.getBalance() - amount;
+        if (!isDeposit && newBalance < 0) {
+            return "Insufficient funds";
+        }
+
+        account.setBalance(newBalance);
+        accountRepository.save(account);
+
         Transaction transaction = new Transaction();
-        transaction.setOriginAccount(originAccount);
-        transaction.setTargetAccount(targetAccount);
+        transaction.setTargetAccount(accountNumber);
         transaction.setAmount(amount);
-        transaction.setTransactionDate(transactionDate);
-        transaction.setSuccessful(successful);
-        return transactionRepository.save(transaction);
+        transaction.setTransactionDate(LocalDateTime.now());
+        transaction.setSuccessful(true);
+        transactionRepository.save(transaction);
+
+        return isDeposit ? "Deposit successful" : "Withdrawal successful";
     }
 }

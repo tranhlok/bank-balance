@@ -25,8 +25,6 @@ public class WebSecurityConfig {
     @Autowired
     private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
 
-    @Autowired
-    private JWTUserDetailsService jwtUserDetailsService;
 
     @Autowired
     private JwtAuthenticationFilter jwtAuthenticationFilter;
@@ -46,7 +44,7 @@ public class WebSecurityConfig {
         http
                 .csrf(csrf->csrf.disable())
                 .authorizeRequests(auth -> auth
-                        .requestMatchers("/api/accounts/register", "/api/accounts/login").permitAll()
+                        .requestMatchers("/api/accounts/register", "/api/accounts/login","/api/transactions/deposit").permitAll()
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .anyRequest().authenticated()
                 )

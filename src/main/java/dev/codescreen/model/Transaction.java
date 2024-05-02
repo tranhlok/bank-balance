@@ -3,6 +3,7 @@ package dev.codescreen.model;
 import java.time.LocalDateTime;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -18,11 +19,12 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String originAccount; // Can be an account number or a placeholder for external sources
     private String targetAccount; // Can be an account number or a placeholder for external targets
 
+    @JsonProperty("amount") // Ensure JSON can map the 'amount' field
     private double amount;
     private LocalDateTime transactionDate;
+    private TransactionType transactionType;
     private boolean successful;
 
     public Long getId() {
@@ -33,13 +35,6 @@ public class Transaction {
         this.id = id;
     }
 
-    public String getOriginAccount() {
-        return originAccount;
-    }
-
-    public void setOriginAccount(String originAccount) {
-        this.originAccount = originAccount;
-    }
 
     public String getTargetAccount() {
         return targetAccount;

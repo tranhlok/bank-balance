@@ -2,18 +2,15 @@ package dev.codescreen.service;
 
 import dev.codescreen.model.Account;
 import dev.codescreen.repository.AccountRepository;
+import dev.codescreen.security.JwtTokenUtil;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.parameters.P;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.SecretKey;
-import javax.crypto.spec.SecretKeySpec;
-import java.nio.charset.StandardCharsets;
-import java.security.Key;
 import java.util.Date;
 
 
@@ -22,12 +19,14 @@ import java.util.Date;
 public class AccountService {
     private final AccountRepository accountRepository;
     private final PasswordEncoder passwordEncoder;
+    private final JwtTokenUtil jwtTokenUtil;
     private final SecretKey secretKey = Keys.secretKeyFor(SignatureAlgorithm.HS256); // Secure key generation
 
     @Autowired
-    public AccountService(AccountRepository accountRepository, PasswordEncoder passwordEncoder) {
+    public AccountService(AccountRepository accountRepository, PasswordEncoder passwordEncoder, JwtTokenUtil jwtTokenUtil) {
         this.accountRepository = accountRepository;
         this.passwordEncoder = passwordEncoder;
+        this.jwtTokenUtil = jwtTokenUtil;
     }
 
     public Account getAccountByEmail(String email) {
@@ -70,7 +69,7 @@ public class AccountService {
             return "Password is incorrect.";
         }
         System.out.println("authenticated");
-        String token = generateToken(account);
+        String token = jwtTokenUtil.generateToken(accountNumber);
         System.out.println("token:"+token);
         // Generate token
         return token;
@@ -88,6 +87,7 @@ public class AccountService {
                 .signWith(secretKey, SignatureAlgorithm.HS256)
                 .compact();
     }
+
 
 
     public void saveAccount(Account account) {
