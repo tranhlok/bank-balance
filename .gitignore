@@ -1,1 +1,8 @@
-target
+# Ignore .idea folder
+.idea/
+
+# Ignore target folder
+target/
+
+# Ignore service.yml file
+service.yml
