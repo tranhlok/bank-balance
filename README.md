@@ -1,5 +1,3 @@
-**Important: Don't forget to update the [Candidate README](#candidate-readme) section**
-
 Real-time Transaction Challenge
 ===============================
 
@@ -200,7 +198,7 @@ it will return Withdrawal successful when there is enough money to execute the c
 ### SQL console
 ![Database Page](fig/db.png)
 
-## Bonus: Deployment considerations
+## Deployment considerations
 - Cloud Hosting Platform: Utilize a major cloud provider like AWS, Azure, or Google Cloud for hosting the application with services tailored to web applications and databases.
 - Containerization: Package the application into Docker containers for consistency across development, testing, and production environments.
 - Orchestration with Kubernetes: Manage and scale the containerized application automatically using Kubernetes, taking advantage of its load balancing, auto-scaling, and self-healing features.
@@ -222,12 +220,3 @@ it will return Withdrawal successful when there is enough money to execute the c
                                        
                                                                                                                                                          
 ```
-## License
-
-At CodeScreen, we strongly value the integrity and privacy of our assessments. As a result, this repository is under exclusive copyright, which means you **do not** have permission to share your solution to this test publicly (i.e., inside a public GitHub/GitLab repo, on Reddit, etc.). <br>
-
-## Submitting your solution
-
-Please push your changes to the `main branch` of this repository. You can push one or more commits. <br>
-
-Once you are finished with the task, please click the `Submit Solution` link on <a href="https://app.codescreen.com/candidate/32c7bcd3-58c7-4d60-824f-3b70a1ae1de3" target="_blank">this screen</a>.
