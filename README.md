@@ -1,4 +1,4 @@
-Real-time Transaction Challenge
+Real-time Transaction
 ===============================
 
 ## Details
