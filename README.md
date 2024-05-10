@@ -26,8 +26,8 @@ To start, clone the project repository from GitHub to your local machine.
 Alternatively, navigate to the project folder and open a terminal.
 
 ```bash
-git clone https://github.com/codescreen/CodeScreen_khqojgsd.git
-cd CodeScreen_khqojgsd
+git clone https://github.com/tranhlok/bank-balance-backend.git
+cd bank-balance-backend
 ```
 
 ### Configure the MySQL Server
@@ -167,7 +167,7 @@ It will return a bearer token like the following:
 
 ```bash
 {
-"token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBQ0NULTE3MTQ2NzU0ODAwMTMiLCJpYXQiOjE3MTQ2NzU0OTEsImV4cCI6MTcxNDY5MzQ5MX0.BaWpQYBjy4uc3NRuN1i41qepNc4dZeUADArkmIxqkC87a9X-7ZNTh0wn_4P0WiKoVMrVTl_4TkpucojmHMBnZA"
+"token": "TokenValue"
 }
 ```
 ![Login Page](fig/login.png)
