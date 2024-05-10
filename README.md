@@ -206,6 +206,9 @@ it will return Withdrawal successful when there is enough money to execute the c
 - Monitoring and Logging: Use tools like Prometheus and Grafana for monitoring, and ELK stack or cloud-native solutions for logging, to keep track of the application’s performance and health.
 - Security Measures: Ensure all communication is encrypted and manage access using IAM roles, alongside regular updates and security patches to safeguard the application.
 
+## Speical thanks to [Dang Duong](https://github.com/duongdang1)
+
+
 ## ASCII art
 ```
 
