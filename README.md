@@ -26,7 +26,7 @@ To start, clone the project repository from GitHub to your local machine.
 Alternatively, navigate to the project folder and open a terminal.
 
 ```bash
-git clone https://github.com/tranhlok/bank-balance-backend.git
+git clone https://github.com/tranhlok/bank-balance.git
 cd bank-balance-backend
 ```
 
